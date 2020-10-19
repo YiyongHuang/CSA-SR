@@ -44,7 +44,6 @@ class CSA_SR(nn.Module):
         # self.lstm1 = nn.LSTM(hidden, hidden, batch_first=True, dropout=dropout)
         self.lstm2 = SLSTM(2 * hidden, hidden)
         self.sem_decoder = nn.LSTM(hidden, 300, batch_first=True)
-        self.vid_decoder = nn.LSTM(hidden, self.feats_c, batch_first=True)
 #         self.lstm2 = nn.LSTM(2*hidden, hidden, batch_first=True, dropout=dropout)
 
         self.embedding = nn.Embedding(vocab_size, hidden)
@@ -82,15 +81,13 @@ class CSA_SR(nn.Module):
             cap_out, state_cap = self.lstm2(caption, tag)
     
             sem_out, sem_state = self.sem_decoder(cap_out)
-            video_out, video_state = self.vid_decoder(cap_out)
             sem_out = sem_out.sum(1)/(self.n_step - 1)
-            video_out = video_out.sum(1)/(self.n_step - 1)
-            
+
             cap_out = torch.cat((cap_out, caption), 2)
             cap_out = cap_out.contiguous().view(-1, 2*self.hidden+self.redu_dim)
             cap_out = self.drop(cap_out)
             cap_out = self.linear2(cap_out)
-            return cap_out, sem_out, video_out
+            return cap_out, sem_out
             # cap_out size [batch_size*79, vocab_size]
         else:
             bos_id = word2id['<BOS>'] * torch.ones(self.batch_size, dtype=torch.long)
@@ -125,10 +122,3 @@ class CSA_SR(nn.Module):
                 caption.append(cap_out)
             return caption
             # size of caption is [79, batch_size]
-
-
-
-
-
-
-

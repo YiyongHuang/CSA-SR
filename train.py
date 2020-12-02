@@ -3,7 +3,7 @@ from utils import *
 from focalloss import *
 
 
-EPOCH = 30
+EPOCH = 50
 nIter = 1200
 BATCH_SIZE = 10
 LEARNING_RATE = 0.0002
@@ -18,7 +18,7 @@ def write_txt(epoch, iteration, loss):
 
 
 if __name__ == "__main__":
-    torch.cuda.set_device(1)
+    # torch.cuda.set_device(1)
     pkl_file = False
     csa_sr = CSA_SR(vocab_size=vovab_size, batch_size=BATCH_SIZE)
     if pkl_file:

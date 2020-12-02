@@ -11,7 +11,7 @@ video captioning based on channel soft attention and semantic reconstructor
 
 ###  Architechture
 
-![](https://github.com/YiyongHuang/CSA-SR/blob/master/Figure1.png)
+![image](https://github.com/YiyongHuang/CSA-SR/blob/master/Figure1.png)
 
 ### Usage
 

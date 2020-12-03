@@ -9,7 +9,8 @@ video captioning based on channel soft attention and semantic reconstructor
 * numpy
 
 ###  Architechture
-![image](https://github.com/YiyongHuang/CSA-SR/blob/master/Architechture.jpg)
+
+![](https://github.com/YiyongHuang/CSA-SR/blob/master/Architechture.jpg)
 
 ### Usage
 Put videos in `dataset` folder and alter the path to video in `extract_feats.py` and `extract_feats_linear.py`, then extract the video features and linear features with follow commands.

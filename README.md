@@ -5,7 +5,7 @@ video captioning based on channel soft attention and semantic reconstructor
 * TensorFlow 2.0
 * Pytorch 1.0
 * skimage
-* v2
+* openCV
 * numpy
 
 ###  Architechture

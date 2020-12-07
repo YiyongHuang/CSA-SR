@@ -4,7 +4,7 @@ import scipy.io as sio
 import json
 
 
-n_lstm_steps = 80
+n_lstm_steps = 40
 VIDEO_DIR = 'dataset/features/'
 VIDEO_DIR_linear = 'dataset/linear_feats/'
 TXT_DIR = 'text_files/'
@@ -31,7 +31,7 @@ def fetch_train_data(batch_size):
     tag = [tag_feats['feats'][int(video.split("id")[1])-1] for video in vid]
     cur_vid = np.array([np.load(VIDEO_DIR+video+'.npy') for video in url])
     cur_vid_linear = np.array([np.load(VIDEO_DIR_linear+video+'.npy') for video in url])
-    feats_idx = np.linspace(0, 79, n_lstm_steps).astype(int)
+    feats_idx = np.linspace(0, 39, n_lstm_steps).astype(int)
     cur_vid = cur_vid[:, feats_idx, :, :, :]
     cur_vid_linear = cur_vid_linear[:, feats_idx, :]
 #     captions = [Vid2Cap_train[video][0] for video in vid]
@@ -48,7 +48,7 @@ def fetch_val_data(batch_size):
     tag = [tag_feats['feats'][int(video.split("id")[1])-1] for video in vid]
     cur_vid = np.array([np.load(VIDEO_DIR+video+'.npy') for video in url])
     cur_vid_linear = np.array([np.load(VIDEO_DIR_linear+video+'.npy') for video in url])
-    feats_idx = np.linspace(0, 79, n_lstm_steps).astype(int)
+    feats_idx = np.linspace(0, 39, n_lstm_steps).astype(int)
     cur_vid = cur_vid[:, feats_idx, :, :, :]
     cur_vid_linear = cur_vid_linear[:, feats_idx, :]
     captions = [np.random.choice(Vid2Cap_val[video], 1)[0] for video in vid]
@@ -62,7 +62,7 @@ def fetch_val_data_orderly(idx, batch_size):
     tag = [tag_feats['feats'][int(video.split("id")[1])-1] for video in vid]
     cur_vid = np.array([np.load(VIDEO_DIR+video+'.npy') for video in url])
     cur_vid_linear = np.array([np.load(VIDEO_DIR_linear+video+'.npy') for video in url])
-    feats_idx = np.linspace(0, 79, n_lstm_steps).astype(int)
+    feats_idx = np.linspace(0, 39, n_lstm_steps).astype(int)
     cur_vid = cur_vid[:, feats_idx, :, :, :]
     cur_vid_linear = cur_vid_linear[:, feats_idx, :]
     captions = [np.random.choice(Vid2Cap_test[video], 1)[0] for video in vid]

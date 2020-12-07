@@ -33,7 +33,7 @@ def extract_feats():
                 frame = np.repeat(frame, 3)
             curr_frames.append(frame)
         curr_frames = np.array(curr_frames)
-        idx = np.linspace(0, len(curr_frames) - 1, 80).astype(int)  # get 80 frames per vid
+        idx = np.linspace(0, len(curr_frames) - 1, 40).astype(int)  # get 40 frames per vid
         curr_frames = curr_frames[idx, :, :, :]
         curr_feats = []
         for frames in curr_frames:

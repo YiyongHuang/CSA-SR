@@ -13,7 +13,7 @@ word2id, id2word = word_to_ids(word_counts, unk_requried=unk_required)
 
 
 class CSA_SR(nn.Module):
-    def __init__(self, vocab_size, batch_size=10, hidden=512, dropout=0.5, n_step=80, feats_c=1536,
+    def __init__(self, vocab_size, batch_size=64, hidden=512, dropout=0.5, n_step=40, feats_c=1536,
                  feats_h=8, feats_w=8, num_centers=32, redu_dim=512):
         super(CSA_SR, self).__init__()
         self.batch_size = batch_size

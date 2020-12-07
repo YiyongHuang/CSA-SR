@@ -8,7 +8,7 @@ nIter = 1200
 BATCH_SIZE = 64
 LEARNING_RATE = 0.0002
 vovab_size = len(word_counts)
-lamda = 0.5
+lamda = 0.2
 
 
 # save training log
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     optimizer = torch.optim.Adam(csa_sr.parameters(), lr=LEARNING_RATE)
 
     for epoch in range(EPOCH):
-        if epoch == 20:
+        if epoch == 40:
             optimizer = torch.optim.Adam(csa_sr.parameters(), lr=0.0001)
         for i in range(nIter):
             video, caption, cap_mask, tag, linear = fetch_train_data(BATCH_SIZE)

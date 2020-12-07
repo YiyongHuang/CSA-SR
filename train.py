@@ -5,7 +5,7 @@ from focalloss import *
 
 EPOCH = 50
 nIter = 1200
-BATCH_SIZE = 10
+BATCH_SIZE = 64
 LEARNING_RATE = 0.0002
 vovab_size = len(word_counts)
 lamda = 0.5

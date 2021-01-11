@@ -1,5 +1,5 @@
 # CSA-SR
-video captioning based on channel soft attention and semantic reconstructor
+
 ### Requirements
 * Python 3.6
 * TensorFlow 2.0

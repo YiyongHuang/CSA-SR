@@ -34,7 +34,7 @@ python evaluate.py
 ```
 
 ##### Computation of params and MACs
-In order to compute the parameters and multiply-accumulate operations (MACs) of our modules, we need to remove the `.cuda()` from our module first, then use `Count_Params_MACs.py` to get the results as follow:
+In order to compute the parameters and multiply-accumulate operations (MACs) of our modules, package `thop` needs to be installed first, and the `.cuda()` should be removed from our module, then use `Count_Params_MACs.py` to get the results as follow:
 ```shell
 python Count_Params_MACs.py
 ```

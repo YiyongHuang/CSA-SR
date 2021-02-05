@@ -33,5 +33,11 @@ Alter the imported package `CSA_SR_beam` with `CSA_SR` in `evaluate.py` can eval
 python evaluate.py
 ```
 
+##### Computation of params and MACs
+In order to compute the parameters and multiply-accumulate operations (MACs) of our modules, we need to remove the `.cuda()` from our module first, then use `Count_Params_MACs.py` to get the results as follow:
+```shell
+python Count_Params_MACs.py
+```
+
 The generated results can be evaluated by using the metrics of WangLei(https://github.com/wangleihitcs/CaptionMetrics)
 
